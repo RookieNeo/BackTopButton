@@ -17,7 +17,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         tableView.delegate = self
         self.view.addSubview(tableView)
         //You must makesure that the button in the top view
-        BackToTopButton.addBackButton(self, scrollView: tableView)
+        BackToTopButton.addBackButton(yourViewController: self, yourTableView: tableView)
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
