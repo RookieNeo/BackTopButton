@@ -28,16 +28,22 @@ class BackToTopButton: UIButton {
     }
     
     func topBtnClick(btn:UIButton){
+        let indexPath=NSIndexPath(forRow: 0, inSection: 0)
         if let tb = self.scrollView as? UITableView{
-            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-            tb.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+            if  tb.numberOfRowsInSection(0) != 0{
+                tb.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+            }else{
+                UIView.animateWithDuration(0.3) { () -> Void in
+                    self.scrollView?.contentOffset=CGPointMake(0, 0)
+                }
+            }
         }else{
             UIView.animateWithDuration(0.3) { () -> Void in
-                self.scrollView?.contentOffset = CGPointMake(0, 0)
+                self.scrollView?.contentOffset=CGPointMake(0, 0)
             }
-            
         }
     }
+
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if context == &myContext {
