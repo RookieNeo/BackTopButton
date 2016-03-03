@@ -10,3 +10,4 @@
 - 如果想改变返回顶部按钮在Y轴上的位置可以直接在上面的一行代码中在加一个参数：offsetY:CGFloat = x  x写你想要增加的位置 代码：
 
 `BackToTopButton.addBackButton(self, scrollView: tableView,offsetY: 10)`
+#### 在ios8.2上 不会调用deinit析构函数 我也不知道为什么，也请大神帮忙
